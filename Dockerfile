@@ -1,25 +1,24 @@
-# Dockerfile
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Install dependencies for building
-RUN apk add --no-cache curl
+ARG VITE_API_BASE_URL
+ARG VITE_MERCHANT_TOKEN
+
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+ENV VITE_MERCHANT_TOKEN=$VITE_MERCHANT_TOKEN
 
 COPY package*.json ./
-RUN npm ci --only=production
 
-# Build the application
+RUN npm ci
+
 COPY . .
+
 RUN npm run build
 
-# Production image
-FROM nginx:alpine AS production
+FROM nginx:alpine
 
-# Copy built files to nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Add custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80

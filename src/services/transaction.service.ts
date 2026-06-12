@@ -40,7 +40,6 @@ export async function fetchTransactions(
   const queryString = buildQueryString(filter, page, size)
   const pathWithQuery = `/api/v1/merchant/transactions?${queryString}`
 
-  const requestUrl = `${API_BASE_URL}${pathWithQuery}`
   const requestHeaders = {
     Authorization: `Bearer ${MERCHANT_TOKEN}`,
   }
