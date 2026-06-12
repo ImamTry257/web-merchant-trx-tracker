@@ -4,4 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [tailwindcss(), react()],
+  server: {
+    allowedHosts: ['merchant-status-tracker.bykarya.id', 'localhost', '127.0.0.1']
+  }
 })
