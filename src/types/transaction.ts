@@ -49,8 +49,6 @@ export interface ApiError {
 
 export type ErrorType =
   | 'UNAUTHORIZED'
-  | 'INVALID_SIGNATURE'
-  | 'INVALID_TIMESTAMP'
   | 'NOT_FOUND'
   | 'INTERNAL_SERVER_ERROR'
   | 'UNKNOWN'

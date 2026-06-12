@@ -9,14 +9,6 @@ const ERROR_MESSAGES: Record<ErrorType, { title: string; description: string }> 
     title: 'Unauthorized Access',
     description: 'Please check your credentials and try again.',
   },
-  INVALID_SIGNATURE: {
-    title: 'Invalid Signature',
-    description: 'The request signature is invalid. Please try again.',
-  },
-  INVALID_TIMESTAMP: {
-    title: 'Invalid Timestamp',
-    description: 'The request timestamp is invalid. Please check your system clock.',
-  },
   NOT_FOUND: {
     title: 'Transaction Not Found',
     description: 'No transaction matching your criteria was found.',
@@ -33,8 +25,6 @@ const ERROR_MESSAGES: Record<ErrorType, { title: string; description: string }> 
 
 const ERROR_STYLES: Record<ErrorType, string> = {
   UNAUTHORIZED: 'border-red-300 bg-red-50 text-red-700',
-  INVALID_SIGNATURE: 'border-orange-300 bg-orange-50 text-orange-700',
-  INVALID_TIMESTAMP: 'border-yellow-300 bg-yellow-50 text-yellow-700',
   NOT_FOUND: 'border-blue-300 bg-blue-50 text-blue-700',
   INTERNAL_SERVER_ERROR: 'border-red-300 bg-red-50 text-red-700',
   UNKNOWN: 'border-gray-300 bg-gray-50 text-gray-700',

@@ -128,12 +128,6 @@ Jika request gagal:
 Unauthorized Access
 ```
 
-### Invalid Signature
-
-```text
-Invalid Signature
-```
-
 ### Invalid Timestamp
 
 ```text
@@ -247,49 +241,6 @@ Pagination UI:
 ```http
 Authorization: Bearer merchant-demo-token
 Content-Type: application/json
-X-TIMESTAMP: 2026-06-12T10:00:00+07:00
-X-SIGNATURE: generated-signature
-```
-
----
-
-## Generate Timestamp
-
-Frontend akan membuat timestamp sebelum request dikirim.
-
-Contoh:
-
-```text
-2026-06-12T10:00:00+07:00
-```
-
----
-
-## Generate Signature
-
-Format:
-
-```text
-StringToSign =
-HTTP_METHOD + ":" + REQUEST_URI_WITH_QUERY + ":" + TIMESTAMP
-```
-
-Contoh:
-
-```text
-GET:/api/v1/merchant/transactions?page=1&size=5&merchantId=EP27842182:2026-06-12T10:00:00+07:00
-```
-
-Generate:
-
-```text
-Signature =
-Base64(
-    HMAC_SHA256(
-        StringToSign,
-        SecretKey
-    )
-)
 ```
 
 ---
